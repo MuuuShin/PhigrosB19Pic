@@ -1,4 +1,5 @@
 # PhigrosB19Pic
+**Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you must find the deleted info and Complete the code.
 ## How to Use
 - Create some folders in following form：
 1. PhigrosB19Pic
