@@ -35,3 +35,5 @@ cd <yourPath>/PhigrosB19Pic
 python app.py <the name of your save file> 1
 ```
 - 在output文件夹获取b19图查.
+> 
+如果觉得太繁琐也可以选择直接来用我的bot。朝月酱已经实装了此功能，只需要寻找任意朝月在的群即可。朝月qq：3335659842
