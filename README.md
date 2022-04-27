@@ -1,5 +1,6 @@
 # PhigrosB19Pic
 **Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you must find the deleted info and Complete the code.**
+**What you should do is rename 'data1.py' to 'data.py', and complete the code.**
 ## How to Use
 - Create some folders in following form：
 1. PhigrosB19Pic
