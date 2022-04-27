@@ -3,10 +3,10 @@ import json
 import os
 import re
 import pyDes
+import data
 
 # -*- coding: UTF-8 -*-
 
-DES_SECRET_KEY = ''
 inputFilePathOrigin = "..\\content\\input\\"
 outputFilePathOrigin = "..\\content\\temp_input\\"
 outputFilePath1 = outputFilePathOrigin + "decode.json"
@@ -33,7 +33,7 @@ def base64ToDesToStr(base64_str):
     base64_str = base64_str.replace("%2F", "/")
     base64_str = base64_str.replace("%3D", "=")
     """ 初始化一个des对象，参数是秘钥，加密方式，偏移， 填充方式 """
-    des_obj = pyDes.des(DES_SECRET_KEY, pyDes.CBC, DES_SECRET_KEY, padmode=pyDes.PAD_PKCS5)
+    des_obj = pyDes.des(data.DES_SECRET_KEY, pyDes.CBC, data.DES_SECRET_KEY, padmode=pyDes.PAD_PKCS5)
     """ 把base64先解成byte后再解密 """
     base64_types = base64_str.encode()
     secret_bytes = base64.b64decode(base64_types)
@@ -53,15 +53,15 @@ def main1(inputFilePath):
     err = []
     originStr = fi.read()
     position = fi.tell()
-    #print("当前文件位置 : ", position)
+    # print("当前文件位置 : ", position)
     fi.close()
     originList = re.findall('<string name="(.+)">(.+)</string>', originStr)
-    #print(len(originList))
+    # print(len(originList))
     j = 0
 
     for i in range(len(originList) - 1):
-        #if (i + 1) % 10 == 0:
-            #print("execute:" + str(i + 1) + "/" + str(len(originList)))
+        # if (i + 1) % 10 == 0:
+        # print("execute:" + str(i + 1) + "/" + str(len(originList)))
         try:
             cs = base64ToDesToStr(originList[i][0])
         except:
@@ -86,5 +86,5 @@ def main1(inputFilePath):
     fo2.close()
     fo1 = open(outputFilePath1, "w+", encoding='utf-8')
     strInfo = '[%s]' % ', '.join(map(str, ans))
-    fo1.write("{\"player\":" + strInfo.replace("//", "\/\/").replace("\n", "\\n") + "}")
+    fo1.write("{\"player\":" + strInfo.replace("//", "\/\/").replace("\n", "\\n").replace("\r", "\\n") + "}")
     fo1.close()
