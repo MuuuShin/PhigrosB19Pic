@@ -1,8 +1,16 @@
 # PhigrosB19Pic
 ## How to Use
--Create some folders in follow form：
-1. item
-  1.1 item
-  1.2 item
--Put the documents into a folder
--Open commend and type in 2 parameters.
+- Create some folders in follow form：
+1. PhigrosB19Pic
+2. content
+    1. input
+    2. temp_input
+    3. save
+    4. output
+- Put the save file into input folder (you can choose rename your save file)
+- Open commend and type:
+```dos
+cd <yourPath>/PhigrosB19Pic
+python app.py <the name of your save file> 1
+```
+- And you can get a pic.
