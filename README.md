@@ -1,6 +1,6 @@
 # PhigrosB19Pic
 ## How to Use
-- Create some folders in follow form：
+- Create some folders in following form：
 1. PhigrosB19Pic
 2. content
     1. input
