@@ -92,7 +92,7 @@ def findA1(playerData):
                 ans = float(rr)
                 pos = k
                 # res=pow(((playerData[k][3]['a']-55)/45),2)*findDiff(playerData[k][0], playerData[k][1])
-    print((playerData[pos][0], playerData[pos][1], ans), apNum, apNumIN)
+    #print((playerData[pos][0], playerData[pos][1], ans), apNum, apNumIN)
     if ans != 0.0:
         return [{'songId': playerData[pos][0], 'songType': playerData[pos][1], 'rating': ans}, apNum, apNumIN]  # ansA1
     else:
@@ -132,10 +132,10 @@ def findB19(playerData):
 # rks计算
 def calcRks(a1, b19list):
     ans = a1[0]['rating']
-    print(ans)
+    #print(ans)
     for j in range(19):
         ans += b19list[j]['rating']
-        print(b19list[j])
+        #print(b19list[j])
     return ans / 20
 
 
@@ -152,7 +152,7 @@ def saveData(a1, b19List, userName, rks):
     strq = '{"userName":"' + userName + '","rks":' + str(rks) + ',"apNum":' + json.dumps(
         a1[1]) + ',"apNumIN":' + json.dumps(
         a1[2]) + ',"a1":' + json.dumps(a1[0]) + ',"b23":' + json.dumps(b19List) + '}'
-    print(strq)
+    #print(strq)
     fo.write(strq)
     fo.close()
 
@@ -177,7 +177,7 @@ def main():
     a1 = findA1(playerData)
     b19List = findB19(playerData)
     rks = calcRks(a1, b19List)
-    print(rks, a1, b19List)
+    #print(rks, a1, b19List)
     saveInfo(playerInfo, userName)
     saveData(a1, b19List, userName, rks)
     cur.close()

@@ -53,15 +53,15 @@ def main1(inputFilePath):
     err = []
     originStr = fi.read()
     position = fi.tell()
-    print("当前文件位置 : ", position)
+    #print("当前文件位置 : ", position)
     fi.close()
     originList = re.findall('<string name="(.+)">(.+)</string>', originStr)
-    print(len(originList))
+    #print(len(originList))
     j = 0
 
     for i in range(len(originList) - 1):
-        if (i + 1) % 10 == 0:
-            print("execute:" + str(i + 1) + "/" + str(len(originList)))
+        #if (i + 1) % 10 == 0:
+            #print("execute:" + str(i + 1) + "/" + str(len(originList)))
         try:
             cs = base64ToDesToStr(originList[i][0])
         except:
