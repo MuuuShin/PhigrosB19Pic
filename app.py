@@ -19,4 +19,5 @@ def main():
 
 
 FileName = sys.argv[1]
+# print(sys.argv)
 main()

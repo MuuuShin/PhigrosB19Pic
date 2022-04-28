@@ -1,6 +1,5 @@
 import json
 import re
-import sqlite3
 import data
 
 # -*- coding: UTF-8 -*-
@@ -53,10 +52,10 @@ def getName(originList):
 
 
 # 找定数
-def findDiff(songName, type):
-    if type == 'SP' or type == 'Legacy':
+def findDiff(songName, songType):
+    if songType == 'SP' or songType == 'Legacy':
         return -1
-    sql = 'select difficulty' + type + ' from songs2nex WHERE id=\'' + songName + '\''
+    sql = 'select difficulty' + songType + ' from songs2nex WHERE id=\'' + songName + '\''
     cur.execute(sql)
     try:
         res = cur.fetchone()[0]
