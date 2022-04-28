@@ -1,6 +1,5 @@
 # PhigrosB19Pic
-**Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you must find the deleted info and Complete the code.**
-**You should rename 'data1.py' to 'data.py', and complete the code.**
+**Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you should rename 'data1.py' to 'data.py', and complete 'data.py'.**
 ## How to Use
 - Create some folders in following form：
 1. PhigrosB19Pic
@@ -18,8 +17,7 @@ python app.py <the name of your save file> 1
 - open 'output' folder and you can get a pic.
 > 
 # PhigrosB19Pic
-**请注意：为了安全起见，此代码已删除一些敏感数据。如果您想使用此代码，那么您必须自行找到相关信息并填充。**
-**只需要将“data1.py”重命名为“data.py”，并完成代码即可。**
+**请注意：为了安全起见，此代码已删除一些敏感数据。如果您想使用此代码，您需要将“data1.py”重命名为“data.py”并完成其代码。**
 ## 使用说明
 - 以如下层级关系创建文件夹：
 1. PhigrosB19Pic
