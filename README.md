@@ -29,8 +29,8 @@ python app.py <the name of your save file> 1
 - 将你的存档(仅限安卓)放入输入文件夹（最好重命名一下）
 - 打开命令行输入:
 ```dos
-cd <yourPath>/PhigrosB19Pic
-python app.py <the name of your save file> 1
+cd <……路径>/PhigrosB19Pic
+python app.py <存档文件名> 1
 ```
 - 在output文件夹获取b19图查.
 > 
