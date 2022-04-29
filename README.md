@@ -1,3 +1,4 @@
+
 # PhigrosB19Pic
 **Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you should rename 'data1.py' to 'data.py', and complete 'data.py'.**
 ## How to Use
@@ -33,5 +34,9 @@ cd <……路径>/PhigrosB19Pic
 python app.py <存档文件名> 1
 ```
 - 在output文件夹获取b19图查.
-> 
+# PhigrosSaveFileUpload 存档上传
 如果觉得太繁琐也可以选择直接来用我的bot。朝月酱已经实装了此功能，只需要寻找任意朝月在的群即可。朝月qq：3335659842
+> 
+上传存档至issue以便我能获取您的存档信息，然后您就可以在朝月酱bot处进行图查行为。
+> 
+存档可通过第三方备份、root手机以及adb获取。
