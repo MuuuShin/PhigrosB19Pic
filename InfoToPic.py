@@ -51,7 +51,8 @@ def main(userName):
     fontXinwei = ImageFont.truetype('C:\\Windows\\Fonts\\STXINWEI.TTF', size=16)
 
     draw.text(xy=(20, 10), text=userName, fill=(0, 0, 0), font=fontZHCN)
-    draw.text(xy=(200, 15), text="rks:" + str(round(rks, 3)), fill=(0, 0, 0), font=fontExo)
+    draw.text(xy=(200, 15), text="rks:" + str(round(rks, 3)) + "(" + str(round(rks, 3)) + ")", fill=(0, 0, 0),
+              font=fontExo)
     draw.text(xy=(460, 13), text="全曲共计φ: " + str(dataInfo['apNum']) + " 个,其中IN: " + str(dataInfo['apNumIN']) + " 个",
               fill=(255, 0, 0),
               font=fontYahei)
