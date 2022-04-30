@@ -17,6 +17,6 @@ def main(userName):
     except:
         os.remove(inputFilePath)
         return -10
-    #print(originList)
+    # print(originList)
     coodde = DesDecodeToJson.process(originList)
     return coodde

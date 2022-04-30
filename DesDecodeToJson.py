@@ -80,7 +80,7 @@ def process(originList):
                 di2 = json.loads(di)
             except:
                 di = "\"" + di + "\""
-            #print(f"line {i}:", originList[i][0], originList[i][1])
+            # print(f"line {i}:", originList[i][0], originList[i][1])
             fo2.write(str(i) + "\n")
             fo2.write(str(cs) + "\n")
             fo2.write(di + "\n")
@@ -92,7 +92,7 @@ def process(originList):
         return -10
     find = 0
     for j in range(len(songName)):
-        if songName[j]=='playerID':
+        if songName[j] == 'playerID':
             find = 1
             break
     if find == 0:
@@ -100,7 +100,8 @@ def process(originList):
         tempPlayer = fname.read()
         fname.close()
         fname = open(outputFilePathOrigin + "NeedName.txt", "w+", encoding='utf-8')
-        fname.write(re.match('(player)(.+)', tempPlayer).group(1)+str(1+int(re.match('(player)(.+)', tempPlayer).group(2))))
+        fname.write(
+            re.match('(player)(.+)', tempPlayer).group(1) + str(1 + int(re.match('(player)(.+)', tempPlayer).group(2))))
         fname.close()
         ans.append("{\"songid\":\"" + 'playerID' + "\",\"info\":\"" + tempPlayer + "\"}")
     fo2.write('[%s]' % ', '.join(map(str, err)))

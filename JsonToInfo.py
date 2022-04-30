@@ -12,7 +12,7 @@ outputFilePath = "..\\content\\save\\"
 
 # 基本数据处理，分离player
 def processOrigin(origin):
-    #print(origin)
+    # print(origin)
     # print(re.search('{"player":(.+)}', origin).group(1))
     originJson = json.loads(re.search('{"player":(.+)}', origin).group(1))
     # print(originJson)

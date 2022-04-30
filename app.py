@@ -4,14 +4,9 @@ import DesDecodeToJson, JsonToInfo, InfoToPic
 import PlistToXml
 import data
 
-sys.argv = []
-sys.argv.append("0")
-sys.argv.append("Typ")
-sys.argv.append(1)
-sys.argv.append("plist")
-
 
 def main():
+    FileName = sys.argv[1]
     if int(sys.argv[2]) == 1:
         if sys.argv[3] == "xml":
             # if 1 == 1:
@@ -36,7 +31,11 @@ def main():
     return 0
 
 
-FileName = sys.argv[1]
-# FileName = "Tyrant"
-# print(sys.argv)
+'''
+sys.argv = []
+sys.argv.append("0")
+sys.argv.append("Typ")
+sys.argv.append(1)
+sys.argv.append("plist")
+'''
 main()
