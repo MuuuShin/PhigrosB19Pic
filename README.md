@@ -9,7 +9,7 @@
     2. temp_input
     3. save
     4. output
-'content' folder has been packed and put into repository code.
+> 'content' folder has been packed and put into repository code.
 - Put the save file(android or IOS) into input folder (you can choose rename your save file)
 - Open commend and type:
 ```dos
@@ -28,7 +28,7 @@ python app.py <save file name> 1 <xml/plist>
     2. temp_input
     3. save
     4. output
-'content' 文件夹已经被打包放入了仓库代码中。
+> 'content' 文件夹已经被打包放入了仓库代码中。
 - 将你的存档(安卓或IOS)放入输入文件夹（最好重命名一下）
 - 打开命令行输入:
 ```dos
