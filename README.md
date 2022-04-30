@@ -10,7 +10,7 @@
     3. save
     4. output
 > 'content' folder has been packed and put into repository code.
-- Put the save file(android or IOS) into input folder (you can choose rename your save file)
+- Put the save file(android or IOS) into input folder (you'd better rename your save file)
 - Open commend and type:
 ```dos
 cd <yourPath>/PhigrosB19Pic
