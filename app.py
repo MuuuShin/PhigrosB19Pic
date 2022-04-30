@@ -1,13 +1,26 @@
 import os
 import sys
 import DesDecodeToJson, JsonToInfo, InfoToPic
+import PlistToXml
 import data
+
+sys.argv = []
+sys.argv.append("0")
+sys.argv.append("Typ")
+sys.argv.append(1)
+sys.argv.append("plist")
 
 
 def main():
     if int(sys.argv[2]) == 1:
-    # if 1 == 1:
-        coodde = DesDecodeToJson.main(FileName)
+        if sys.argv[3] == "xml":
+            # if 1 == 1:
+            coodde = DesDecodeToJson.main(FileName)
+        elif sys.argv[3] == "plist":
+            coodde = PlistToXml.main(FileName)
+        else:
+            print("Error-108:后缀名无效，请输入xml(安卓)或plist(IOS)。")
+            return -108
         if coodde == -100:
             print("Error-100:未找到存档文件，可能是未上传或命名错误。请重试上传或/feedback进行反馈。")
             return -100
