@@ -68,7 +68,7 @@ def main(userName):
                 acc = str(100.0)
                 rks = str(a1['rating'])
             else:
-                tst = findName(b19list[i * 5 + j - 1]['songId']) + '[' + b19list[i * 5 + j]['songType'] + ']'
+                tst = findName(b19list[i * 5 + j - 1]['songId']) + '[' + b19list[i * 5 + j - 1]['songType'] + ']'
                 acc = str(round(b19list[i * 5 + j - 1]['acc'], 3))
                 rks = str(b19list[i * 5 + j - 1]['songDiff']) + "→" + str(round(b19list[i * 5 + j - 1]['rating'], 3))
             if fontYaheis.getsize(tst)[0] > 145:
