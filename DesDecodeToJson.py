@@ -19,7 +19,10 @@ def main(userName):
     inputFilePath = inputFilePathOrigin + userName + ".xml"
     if not os.path.exists(inputFilePath):
         return -100
-    main1(inputFilePath)
+    coode = main1(inputFilePath)
+    if coode == -10:
+        os.remove(inputFilePath)
+        return -10
 
 
 """
@@ -82,9 +85,12 @@ def main1(inputFilePath):
             info.append(di)
             ans.append("{\"songid\":\"" + str(songName[j]) + "\",\"info\":" + str(info[j]) + "}")
             j = j + 1
+    if not ans:
+        return -10
     fo2.write('[%s]' % ', '.join(map(str, err)))
     fo2.close()
     fo1 = open(outputFilePath1, "w+", encoding='utf-8')
     strInfo = '[%s]' % ', '.join(map(str, ans))
     fo1.write("{\"player\":" + strInfo.replace("//", "\/\/").replace("\n", "\\n").replace("\r", "\\n") + "}")
     fo1.close()
+    return 0

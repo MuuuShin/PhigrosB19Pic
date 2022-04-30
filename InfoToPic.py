@@ -63,6 +63,9 @@ def main(userName):
             draw.line(xy=(10, 385, 760, 385), fill=(0, 0, 0), width=3)
             c += 25
         for j in range(5):
+            # print(b19list[i * 5 + j - 1]== -1)
+            if b19list[i * 5 + j - 1] == -1:
+                break
             if i == 0 and j == 0:
                 tst = findName(a1['songId']) + '[' + a1['songType'] + ']'
                 acc = str(100.0)
