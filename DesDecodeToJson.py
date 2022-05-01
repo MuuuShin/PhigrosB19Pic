@@ -10,7 +10,8 @@ import data
 inputFilePathOrigin = "..\\content\\input\\"
 outputFilePathOrigin = "..\\content\\temp_input\\"
 outputFilePath1 = outputFilePathOrigin + "decode.json"
-outputFilePath2 = outputFilePathOrigin + "err.txt"
+outputFilePath2 = outputFilePathOrigin + "debug.txt"
+outputFilePath3 = outputFilePathOrigin + "err.json"
 
 
 # 预处理，先传入存档路径
@@ -54,7 +55,7 @@ def main1(inputFilePath):
     fi.close()
     originList = re.findall('<string name="(.+)">(.+)</string>', originStr)
     # print(originList)
-    process(originList)
+    return process(originList)
 
 
 def process(originList):
@@ -64,6 +65,8 @@ def process(originList):
     ans = []
     err = []
     j = 0
+    tempPlayer = None
+    # 检验字段合法性，过程丢debug.txt，未加密内容丢err.json
     for i in range(len(originList) - 1):
         # if (i + 1) % 10 == 0:
         # print("execute:" + str(i + 1) + "/" + str(len(originList)))
@@ -74,7 +77,15 @@ def process(originList):
             fo2.write(str(i) + "\n")
             fo2.write(originList[i][0] + "\n")
             fo2.write(str(originList[i][1]) + "\n")
-            err.append("\"line\":" + str(i) + ", \"" + originList[i][0] + "\":\"" + str(originList[i][1]) + "\"")
+            try:
+                ss1 = str(json.loads(str(originList[i][1])))
+            except:
+                ss1 = "\"" + str(originList[i][1]) + "\""
+            if originList[i][0] == "playerID":
+                tempPlayer = originList[i][1]
+            err.append(
+                ("{\"line\":" + str(i) + ", \"" + originList[i][0] + "\":" + ss1).replace(
+                    "//", "\/\/").replace("\r", "\\r").replace("\n", "\\n") + "}")
         else:
             try:
                 di2 = json.loads(di)
@@ -88,24 +99,29 @@ def process(originList):
             info.append(di)
             ans.append("{\"songid\":\"" + str(songName[j]) + "\",\"info\":" + str(info[j]) + "}")
             j = j + 1
+    fo2.close()
     if not ans:
         return -10
+    fo3 = open(outputFilePath3, "w+", encoding='utf-8')
+    fo3.write('[%s]' % ', '.join(map(str, err)))
+    fo3.close()
+    # 找playerID，如果不存在
     find = 0
     for j in range(len(songName)):
         if songName[j] == 'playerID':
             find = 1
             break
     if find == 0:
-        fname = open(outputFilePathOrigin + "NeedName.txt", "r", encoding='utf-8')
-        tempPlayer = fname.read()
-        fname.close()
-        fname = open(outputFilePathOrigin + "NeedName.txt", "w+", encoding='utf-8')
-        fname.write(
-            re.match('(player)(.+)', tempPlayer).group(1) + str(1 + int(re.match('(player)(.+)', tempPlayer).group(2))))
-        fname.close()
+        if tempPlayer is None:
+            fname = open(outputFilePathOrigin + "NeedName.txt", "r", encoding='utf-8')
+            tempPlayer = fname.read()
+            fname.close()
+            fname = open(outputFilePathOrigin + "NeedName.txt", "w+", encoding='utf-8')
+            fname.write(
+                re.match('(player)(.+)', tempPlayer).group(1) + str(
+                    1 + int(re.match('(player)(.+)', tempPlayer).group(2))))
+            fname.close()
         ans.append("{\"songid\":\"" + 'playerID' + "\",\"info\":\"" + tempPlayer + "\"}")
-    fo2.write('[%s]' % ', '.join(map(str, err)))
-    fo2.close()
     fo1 = open(outputFilePath1, "w+", encoding='utf-8')
     strInfo = '[%s]' % ', '.join(map(str, ans))
     fo1.write("{\"player\":" + strInfo.replace("//", "\/\/").replace("\n", "\\n").replace("\r", "\\n") + "}")
