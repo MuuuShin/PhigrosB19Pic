@@ -165,6 +165,8 @@ def main():
     originStr = fi.read()
     originList = processOrigin(originStr)
     userName = getName(originList)
+    if type(userName).__name__ != 'str':
+        userName = str(userName)
     playerInfo = []
     playerData = []
     for i in range(len(originList)):
