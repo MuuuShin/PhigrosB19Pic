@@ -130,7 +130,10 @@ def findB19(playerData):
 
 # rks计算
 def calcRks(a1, b19list):
-    ans = a1[0]['rating']
+    if not a1[1] ==-1:
+        ans = a1[0]['rating']
+    else:
+        ans = 0
     # print(ans)
     for j in range(19):
         ans += b19list[j]['rating']

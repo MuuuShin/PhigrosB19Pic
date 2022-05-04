@@ -53,7 +53,12 @@ def main(userName):
     draw.text(xy=(20, 10), text=userName, fill=(0, 0, 0), font=fontZHCN)
     draw.text(xy=(200, 15), text="rks:" + str(round(rks, 2)) + "(" + str(round(rks, 3)) + ")", fill=(0, 0, 0),
               font=fontExo)
-    draw.text(xy=(460, 13), text="全曲共计φ: " + str(dataInfo['apNum']) + " 个,其中IN: " + str(dataInfo['apNumIN']) + " 个",
+    if dataInfo['apNum']==-1:
+        draw.text(xy=(500, 13), text="你还一首歌都没有收哦~",
+                  fill=(255, 0, 0),
+                  font=fontYahei)
+    else:
+        draw.text(xy=(460, 13), text="全曲共计φ: " + str(dataInfo['apNum']) + " 个,其中IN: " + str(dataInfo['apNumIN']) + " 个",
               fill=(255, 0, 0),
               font=fontYahei)
     c = 50
@@ -67,6 +72,8 @@ def main(userName):
             # print(b19list[i * 5 + j - 1]== -1)
             if b19list[i * 5 + j - 1] == -1:
                 break
+            if dataInfo['apNum'] == -1 and i == 0 and j == 0:
+                continue
             if i == 0 and j == 0:
                 tst = findName(a1['songId']) + '[' + a1['songType'] + ']'
                 acc = str(100.0)

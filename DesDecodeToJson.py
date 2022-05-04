@@ -110,16 +110,17 @@ def process(originList):
     for j in range(len(songName)):
         if songName[j] == 'playerID':
             find = 1
+            playerName = info[j]
             break
-    if find == 0:
+    if find == 0 or playerName == "GUEST":
         if tempPlayer is None:
             fname = open(outputFilePathOrigin + "NeedName.txt", "r", encoding='utf-8')
             tempPlayer = fname.read()
             fname.close()
             fname = open(outputFilePathOrigin + "NeedName.txt", "w+", encoding='utf-8')
             fname.write(
-                re.match('(player)(.+)', tempPlayer).group(1) + str(
-                    1 + int(re.match('(player)(.+)', tempPlayer).group(2))))
+                re.match('(Player)(.+)', tempPlayer).group(1) + str(
+                    1 + int(re.match('(Player)(.+)', tempPlayer).group(2))))
             fname.close()
         ans.append("{\"songid\":\"" + 'playerID' + "\",\"info\":\"" + tempPlayer + "\"}")
     fo1 = open(outputFilePath1, "w+", encoding='utf-8')
