@@ -1,6 +1,6 @@
 
 # PhigrosB19Pics
-**Pay attention: Because of the update of phigros, The Repository has been out of date.**<br>
+**Pay attention: Because of the update of phigros, the Repository has been out of date.**<br>
 **Pay attention: this code has deleted some sensitive info for safety. If you want to use this code, you should rename 'data1.py' to 'data.py', and complete 'data.py'.**
 ## How to Use
 - set folders in following form：
